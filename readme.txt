@@ -1,6 +1,4 @@
-# Mavis HTTPS to HTTP Redirection 
-The official development branch for the wordpress plugin located at https://wordpress.org/plugins/mavis-https-to-http-redirect
-
+=== Mavis HTTPS to HTTP Redirection ===
 Contributors: phkcorp2005
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=9674139
 Tags: https-to-http, https, http, redirection, mavis
@@ -10,7 +8,7 @@ Stable tag: 1.4.1
 
 Provides page redirection back to non-secured pages (https: to http:)
 
-# Description 
+== Description ==
 
 This plugin was developed to solve a redirection issue when navigating from a secured checkout page back to
 a non-secured page (or page that you need to have as non-secured---possibly because of non-secured
@@ -30,7 +28,7 @@ This plugin resolves this issue by redirecting all non specified checkout (and o
 back to a non-secured page counterpart.
 
 
-# Installation 
+== Installation ==
 
 To instal this plugin, follow these steps:
 
@@ -42,14 +40,14 @@ To instal this plugin, follow these steps:
 6. Set your secured page on the 'Mavis HTTPS/HTTP Redirection' admin page from the 'Settings' menu in Wordpress
 7. If you have more than one secured page, separate each page name using commas (e.g. checkout,confirm)
 
-# Frequently Asked Questions 
+== Frequently Asked Questions ==
 
 Please do not be afraid of asking questions?<br>
 
 (There are no stupid or dumb questions!)
 
 
-# Changelog 
+== Changelog ==
 = 1.4.1 =
 * Fix a bug that prevented displaying secured page list in text field properly
 
@@ -66,7 +64,7 @@ Please do not be afraid of asking questions?<br>
 = 1.0 =
 * Created
 
-# Upgrade Notice 
+== Upgrade Notice ==
 = 1.4.1 =
 See 1.4 upgrade notice
 
@@ -79,11 +77,11 @@ Apparently the redirection is executed during an admin session as a user had rep
 = 1.2 =
 Adds support for permitting more than one secured page to be checked. This is a user-requested feature, as the user reported that certain ecommerce plugins had a second secured page that was getting redirected back to an unsecured session.
 
-# Credits 
+== Credits ==
 
 We make honorable mention to anyone who helps make Mavis HTTPS to HTTP Redirect a better plugin!
 
-# Contact 
+== Contact ==
 
 Support is provided at https://github.com/patrickingle/mavis-https-to-http-redirect/issues. You will require a free account on github.com
 
