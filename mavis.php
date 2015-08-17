@@ -3,7 +3,7 @@
 Plugin Name: Mavis HTTPS to HTTP Redirection
 Plugin URI: http://www.phkcorp.com?do=wordpress
 Description: Forcing the redirect to non-secure session when secured session is active
-Version: 1.4.1
+Version: 1.4.2
 Author: PHK Corporation
 Author URI: http://www.phkcorp.com
 */

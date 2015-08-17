@@ -5,8 +5,8 @@ Contributors: phkcorp2005
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=9674139
 Tags: https-to-http, https, http, redirection, mavis
 Requires at least: 2.9
-Tested up to: 2.9
-Stable tag: 1.4.1
+Tested up to: 4.3
+Stable tag: 1.4.2
 
 Provides page redirection back to non-secured pages (https: to http:)
 
@@ -50,6 +50,9 @@ Please do not be afraid of asking questions?<br>
 
 
 # Changelog 
+= 1.4.2 =
+* updates for wp version 4.3
+
 = 1.4.1 =
 * Fix a bug that prevented displaying secured page list in text field properly
 
@@ -67,17 +70,6 @@ Please do not be afraid of asking questions?<br>
 * Created
 
 # Upgrade Notice 
-= 1.4.1 =
-See 1.4 upgrade notice
-
-= 1.4 =
-If your server has not enabled short php definitions, then you must upgrade to this version
-
-= 1.3 =
-Apparently the redirection is executed during an admin session as a user had reported. The change includes a filter to prevent the plugin from redirecting during an admin session
-
-= 1.2 =
-Adds support for permitting more than one secured page to be checked. This is a user-requested feature, as the user reported that certain ecommerce plugins had a second secured page that was getting redirected back to an unsecured session.
 
 # Credits 
 
