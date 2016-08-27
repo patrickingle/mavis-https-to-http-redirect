@@ -135,10 +135,15 @@ uses the PHP regular expression matching function '<a href="http://www.php.net/m
 					<legend><h2><u>Wordpress Development</u></h2></legend>
 <p><a href="http://www.phkcorp.com" target="_blank">PHK Corporation</a> is available for custom Wordpress development which includes development of new plugins, modification
 of existing plugins, migration of HTML/PSD/Smarty themes to wordpress-compliant <b>seamless</b> themes.</p>
-<p>You may see our samples at <a href="http://www.phkcorp.com?do=wordpress" target="_blank">www.phkcorp.com?do=wordpress</a></p>
-<p>Please email at <a href="mailto:phkcorp2005@gmail.com">phkcorp2005@gmail.com</a> or <a href="http://www.phkcorp.com?do=contact" target="_blank">www.phkcorp.com?do=contact</a> with your programming requirements.</p>
+<p>Please email at <a href="mailto:phkcorp2005@gmail.com">phkcorp2005@gmail.com</a> with your programming requirements.</p>
 				</fieldset>
 
+                        <fieldset class="options">
+                            <legend><h2><u>Support</u></h2></legend>
+                            <p>Support is provided from <a href="https://github.com/patrickingle/mavis-https-to-http-redirect/issues" target="_blank">github.com</a> (opens in new window)</p>
+                            <p>You must have a free github.com account to post issue requests.</p>
+                        </fieldset>
+                        
 				<fieldset class='options'>
 					<legend><h2><u>Plugin PHP Code</u></h2></legend>
 <p>Here is the actual plugin code that provides the redirection.</p>

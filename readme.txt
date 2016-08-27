@@ -3,7 +3,7 @@ Contributors: phkcorp2005
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=9674139
 Tags: https-to-http, https, http, redirection, mavis
 Requires at least: 2.9
-Tested up to: 4.3
+Tested up to: 4.6
 Stable tag: 1.4.2
 
 Provides page redirection back to non-secured pages (https: to http:)
