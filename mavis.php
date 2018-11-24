@@ -1,14 +1,14 @@
 <?php
 /*
 Plugin Name: Mavis HTTPS to HTTP Redirection
-Plugin URI: http://www.phkcorp.com?do=wordpress
+Plugin URI: https://wordpess.org/plugins/mavis-https-to-http-redirect
 Description: Forcing the redirect to non-secure session when secured session is active
 Version: 1.4.2
-Author: PHK Corporation
-Author URI: http://www.phkcorp.com
+Author: PressPage Entertainment Inc.
+Author URI: https://presspage.info
 */
 
-/*  Copyright 2009  PHK Corporation  (email : phkcorp2005@gmail.com)
+/*  Copyright 2009-2018  PressPage Entertainment Inc  (email : presspage.entertainment@gmail.com)
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -133,14 +133,14 @@ uses the PHP regular expression matching function '<a href="http://www.php.net/m
 
 				<fieldset class='options'>
 					<legend><h2><u>Wordpress Development</u></h2></legend>
-<p><a href="http://www.phkcorp.com" target="_blank">PHK Corporation</a> is available for custom Wordpress development which includes development of new plugins, modification
+<p><a href="https://presspage.info" target="_blank">PressPage Entertainment Inc.</a> is available for custom Wordpress development which includes development of new plugins, modification
 of existing plugins, migration of HTML/PSD/Smarty themes to wordpress-compliant <b>seamless</b> themes.</p>
-<p>Please email at <a href="mailto:phkcorp2005@gmail.com">phkcorp2005@gmail.com</a> with your programming requirements.</p>
+<p>Please email at <a href="mailto:presspage.entertainment@gmail.com">presspage.entertainment@gmail.com</a> with your programming requirements.</p>
 				</fieldset>
 
                         <fieldset class="options">
                             <legend><h2><u>Support</u></h2></legend>
-                            <p>Support is provided from <a href="https://github.com/patrickingle/mavis-https-to-http-redirect/issues" target="_blank">github.com</a> (opens in new window)</p>
+                            <p>Support is provided from <a href="https://github.com/presspage2018/mavis-https-to-http-redirect/issues" target="_blank">github.com</a> (opens in new window)</p>
                             <p>You must have a free github.com account to post issue requests.</p>
                         </fieldset>
                         

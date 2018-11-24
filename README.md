@@ -77,6 +77,6 @@ We make honorable mention to anyone who helps make Mavis HTTPS to HTTP Redirect 
 
 # Contact 
 
-Support is provided at https://github.com/patrickingle/mavis-https-to-http-redirect/issues. You will require a free account on github.com
+Support is provided at https://github.com/presspage2018/mavis-https-to-http-redirect/issues. You will require a free account on github.com
 
-Please contact phkcorp2005@gmail.com or visit the above forum with questions, comments, or requests.
+Please contact presspage.entertainment@gmail.com or visit the above forum with questions, comments, or requests.
