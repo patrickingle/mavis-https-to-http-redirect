@@ -3,8 +3,8 @@ Contributors: phkcorp2005
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=9674139
 Tags: https-to-http, https, http, redirection, mavis
 Requires at least: 2.9
-Tested up to: 4.6
-Stable tag: 1.4.2
+Tested up to: 5.5
+Stable tag: 1.4.3
 
 Provides page redirection back to non-secured pages (https: to http:)
 
@@ -48,6 +48,10 @@ Please do not be afraid of asking questions?<br>
 
 
 == Changelog ==
+= 1.4.3 =
+* fixed Deprecated: has_cap
+* switch from separate database table to wp option variable of wp_mavis_settings.page
+
 = 1.4.2 =
 * updates for wp version 4.3
 
@@ -75,6 +79,6 @@ We make honorable mention to anyone who helps make Mavis HTTPS to HTTP Redirect 
 
 == Contact ==
 
-Support is provided at https://github.com/presspage2018/mavis-https-to-http-redirect/issues. You will require a free account on github.com
+Support is provided at https://github.com/pingleware/mavis-https-to-http-redirect/issues. You will require a free account on github.com
 
 Please contact presspage.entertainment@gmail.com or visit the above forum with questions, comments, or requests.

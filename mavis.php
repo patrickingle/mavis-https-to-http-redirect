@@ -3,7 +3,7 @@
 Plugin Name: Mavis HTTPS to HTTP Redirection
 Plugin URI: https://wordpess.org/plugins/mavis-https-to-http-redirect
 Description: Forcing the redirect to non-secure session when secured session is active
-Version: 1.4.2
+Version: 1.4.3
 Author: PressPage Entertainment Inc.
 Author URI: https://presspage.info
 */
@@ -43,15 +43,17 @@ CREATE TABLE IF NOT EXISTS `wp_mavis_settings` (
 
 function addMavisSettingsTable ()
 {
-	global $wpdb;
+	//global $wpdb;
 
 	if (is_admin()) {
-
+		/*
 		$query = "CREATE TABLE IF NOT EXISTS `wp_mavis_settings` (
   				`page` varchar(255) NOT NULL)
 				ENGINE=MyISAM DEFAULT CHARSET=latin1;";
 
 		$wpdb->query($query);
+		*/
+		update_option('wp_mavis_settings.page','');
 	} // endif of is_admin()
 }
 
@@ -59,18 +61,21 @@ function addMavisSettingsTable ()
 function addMavisToManagementPage()
 {
     // Add a new submenu under Options:
-    add_options_page('Mavis HTTPS/HTTP Redirection', 'Mavis HTTPS/HTTP Redirection', 8, 'mavis', 'displayMavisManagementPage');
+	//add_options_page('Mavis HTTPS/HTTP Redirection', 'Mavis HTTPS/HTTP Redirection', 8, 'mavis', 'displayMavisManagementPage');
+	// add_options_page( string $page_title, string $menu_title, string $capability, string $menu_slug, callable $function = '', int $position = null )
+	add_options_page('Mavis HTTPS/HTTP Redirection', 'Mavis HTTPS/HTTP Redirection', 'administrator', 'mavis', 'displayMavisManagementPage');
 }
+
 
 // Display the admin page.
 function displayMavisManagementPage()
 {
-	global $wpdb;
+	//global $wpdb;
 
 	if (is_admin()) {
 		// Create the tables, if they do not exist?
 		addMavisSettingsTable();
-
+		
 		if (isset($_POST['mavis_update']))
 		{
 			//check_admin_referer();
@@ -78,15 +83,18 @@ function displayMavisManagementPage()
 			$securedPage = $_POST['secured_page_tag'];
 			if ($securedPage == '') $securedPage = 'checkout,confirm-order';
 
-			$wpdb->query("TRUNCATE TABLE wp_mavis_settings");
-			$wpdb->query("insert into wp_mavis_settings (page) values ('".$securedPage."')");
+			//$wpdb->query("TRUNCATE TABLE wp_mavis_settings");
+			//$wpdb->query("insert into wp_mavis_settings (page) values ('".$securedPage."')");
+			update_option('wp_mavis_settings.page',$securedPage);
 
 			// echo message updated
 			echo "<div class='updated fade'><p>Mavis HTTPS-to-HTTP Redirection settings have been updated.</p></div>";
 		}
 
-		$t = $wpdb->get_col("select page from wp_mavis_settings");
-		$securedPage = $t[0];
+		//$t = $wpdb->get_col("select page from wp_mavis_settings");
+		//$securedPage = $t[0];
+		$securedPage = get_option('wp_mavis_settings.page');
+		
 
 ?>
 		<div class="wrap">
@@ -140,7 +148,7 @@ of existing plugins, migration of HTML/PSD/Smarty themes to wordpress-compliant 
 
                         <fieldset class="options">
                             <legend><h2><u>Support</u></h2></legend>
-                            <p>Support is provided from <a href="https://github.com/presspage2018/mavis-https-to-http-redirect/issues" target="_blank">github.com</a> (opens in new window)</p>
+                            <p>Support is provided from <a href="https://github.com/pingleware/mavis-https-to-http-redirect/issues" target="_blank">github.com</a> (opens in new window)</p>
                             <p>You must have a free github.com account to post issue requests.</p>
                         </fieldset>
                         
@@ -198,46 +206,53 @@ function mavis_redirect() {
 	if (!is_admin()) {
 		$match=0;
 
-		if ($_SERVER['HTTPS'] == "on") {
-    		$url = "http://". $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'];
-			$t = $wpdb->get_col("select page from wp_mavis_settings");
-			$ay = explode(",",$t[0]);
-			for ($i=0; $i<count($ay); $i++) {
-				$sp = "/".$ay[$i]."/";
-				if (preg_match($sp, $url) == true) {
-				   $match = 1;
+		/**
+		 * Issue #4: https://github.com/pingleware/mavis-https-to-http-redirect/issues/4
+		 * Don't redirect for cron jobs
+		 */
+		if (isset($_REQUEST['doing_wp_cron']) === false) {
+			if ($_SERVER['HTTPS'] == "on") {
+				$url = "http://". $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'];
+				//$t = $wpdb->get_col("select page from wp_mavis_settings");
+				$t = get_option('wp_mavis_settings.page');
+				$ay = explode(",",$t);
+				for ($i=0; $i<count($ay); $i++) {
+					$sp = "/".$ay[$i]."/";
+					if (preg_match($sp, $url) == true) {
+					   $match = 1;
+					}
 				}
-			}
-
-			if ($match == 0) {
-				header("Location: $url");
-				exit;
-			}
-
-
-			//Original Code:
-			//-------------
-			//$sp = "/".$t[0]."/";
-			//if (preg_match($sp, $url) == false) {
-			//	header("Location: $url");
-			//	exit;
-			//}
-
-		} else {
-    		$url = "https://". $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'];
-			$t = $wpdb->get_col("select page from wp_mavis_settings");
-			$ay = explode(",",$t[0]);
-			for ($i=0; $i<count($ay); $i++) {
-				$sp = "/".$ay[$i]."/";
-				if (preg_match($sp, $url) == true) {
-					$match = 1;
+	
+				if ($match == 0) {
+					header("Location: $url");
+					exit;
 				}
-			}
+	
+	
+				//Original Code:
+				//-------------
+				//$sp = "/".$t[0]."/";
+				//if (preg_match($sp, $url) == false) {
+				//	header("Location: $url");
+				//	exit;
+				//}	
+			} else {
+				$url = "https://". $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'];
+				//$t = $wpdb->get_col("select page from wp_mavis_settings");
+				$t = get_option('wp_mavis_settings.page');
+				$ay = explode(",",$t);
+				for ($i=0; $i<count($ay); $i++) {
+					$sp = "/".$ay[$i]."/";
+					if (preg_match($sp, $url) == true) {
+						$match = 1;
+					}
+				}
 
-			if ($match == 1) {
-   				$url = "https://". $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'];
-				header("Location: $url");
-				exit;
+				if ($match == 1) {
+					$url = "https://". $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'];
+					header("Location: $url");
+					exit;
+				}
 			}
 		}
 	} // endif of !is_admin()
@@ -247,7 +262,7 @@ function mavis_redirect() {
 // Hooks
 //
 
-add_action( 'init', 'mavis_redirect', 0 );
+add_action('init', 'mavis_redirect', 0 );
 add_action('admin_menu', 'addMavisToManagementPage');
 
 ?>
